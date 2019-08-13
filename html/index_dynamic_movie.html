@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Movie Store</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="MGM5YTkyZjgtYmUwZS00OGVmLWFmZjQtZDc1MWFhNGVlZDM5NjM2ODcxMzI3MzIzMzM0NzE0" data-autopop="false"></script>
+<link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
+	
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+
+.container:hover .image {
+  opacity: 0.1;
+	transition: .5s ease;
+}
+
+.container:hover .text {
+  visibility: visible;
+	transition: .5s ease;
+}
+
+.text {
+	visibility: hidden;
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  visibility: visible;
+  opacity: 0.2;
+	transition: .5s ease;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+
+.container .snipcart-add-item {
+  position: absolute;
+  top: 95%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 14px 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .snipcart-add-item:hover {
+  background-color: black;
+}
+
+#content {
+    position: relative;
+}
+#content img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.grid-container {
+  display: grid;
+  grid-gap: 50px 100px;
+  grid-template-columns: auto auto auto;
+  
+  padding: 10px;
+}
+
+.grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+
+<script>
+	$(document).ready(function(){
+		$("button").click(function(){
+			$("#myDIV").toggle();
+		});
+	});
+</script>
+<body class="w3-light-grey">
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding">Movie Store</span>
+  <div id="content">
+    <img style='width:30px;height:30px;' class="snipcart-checkout w3-right" src="basket.png"/>
+ </div>
+</header>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+  
+  <!-- Photo grid -->
+
+  
+<div id = "grid-container" class="grid-container">
+ 
+</div>
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
+  </div>
+  
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-grey">  
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <h3>INFO</h3>
+        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>      
+      </div>
+    </div>
+  </footer>
+  
+  <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+</script>
+<script>
+		var movie_data;
+		var poster_id;
+		
+			$(function(){
+				$.get("api.php", function(data){
+					
+					
+					processData(data);	
+						
+				});
+			});	
+		function JSON_API(movie_id, poster_id, movie_api_url) {
+			console.log(movie_id);
+		
+			$.getJSON(movie_api_url, function(data) {
+					document.getElementById(movie_id).innerHTML =  "Title: " +data.Title + "<br />Year: " + data.Year + "<br />Date Released: " + data.Released + 
+					"<br />Runtime: " + data.Runtime;
+					
+					var plot = (data.Plot).replace(/'/g, '&#39;');
+					document.getElementById(poster_id).innerHTML = "<img alt=' " + "Genre: " + data.Genre + "<br />IMDB rating: " + data.imdbRating + "<br />Metascore: " + data.Metascore + "<br />Plot: "+ plot +" ' onclick='onClick(this)' style='width:450px;height:600px;' class='image' src=\'" + data.Poster + "' width=\'400px\' height=\'150px\'>";
+				});
+		
+		}
+		function processData(param) {
+		
+		
+			for (let i = 0; i < param.length; i++) { 
+				
+				var container_div = document.createElement("DIV");
+				container_div.setAttribute("class", "container");
+	
+				var movie_name = param[i].MovieName.replace(/\s/g, '+');
+				var movie_api_url = "https://www.omdbapi.com/?t=" + movie_name + "&apikey=640dcae3"
+				var movie_id = param[i].MovieName.replace(/\s/g, '')
+				poster_id = param[i].MovieName.replace(/\s/g, '') + "_poster";
+						
+				JSON_API(movie_id, poster_id, movie_api_url);
+				
+				
+				var poster_div = document.createElement("DIV");
+				poster_div.setAttribute("id", poster_id);
+								
+				var text_div = document.createElement("DIV");
+				text_div.setAttribute("class", "text");
+				
+				var movie_id = param[i].MovieName.replace(/\s/g, '');
+				var movietext_div = document.createElement("p");
+				movietext_div.setAttribute("id", movie_id);
+				text_div.appendChild(movietext_div);
+				
+				var shop_button = document.createElement("BUTTON");
+				shop_button.setAttribute("class", "snipcart-add-item");
+				shop_button.setAttribute("data-item-id", param[i].item_id);
+				shop_button.setAttribute("data-item-name", param[i].item_name);
+				shop_button.setAttribute("data-item-price", param[i].price);
+				shop_button.setAttribute("data-item-url", param[i].item_url);
+				shop_button.setAttribute("data-item-description", param[i].movie_description);
+				
+				var button_text = document.createTextNode("Add to cart");         
+				shop_button.appendChild(button_text); 
+				
+				container_div.appendChild(poster_div);
+				container_div.appendChild(text_div);
+				container_div.appendChild(shop_button);
+			
+			
+				var element = document.getElementById("grid-container");
+				element.appendChild(container_div);
+				
+			}
+		}
+</script>
+
+</body>
+</html>
